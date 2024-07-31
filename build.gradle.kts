@@ -3,7 +3,7 @@ import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "1.9.24"
-    id("org.jetbrains.intellij.platform") version "2.0.0-rc1"
+    id("org.jetbrains.intellij.platform") version "2.0.0"
 }
 
 group = "com.example"
@@ -20,9 +20,9 @@ repositories {
 dependencies {
     testImplementation("junit:junit:4.13.2")
     intellijPlatform {
-        bundledPlugin("com.intellij.spring")
         testFramework(TestFrameworkType.Platform)
-        intellijIdeaUltimate("242.20224.91")
+        intellijIdeaUltimate("242.20224.159")
+//        intellijIdeaCommunity("242.20224.159")
     }
 }
 
