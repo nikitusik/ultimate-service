@@ -1,9 +1,9 @@
-import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+import org.jetbrains.intellij.platform.gradle.tasks.RunIdeTask
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.9.24"
-    id("org.jetbrains.intellij.platform") version "2.0.0"
+    id("org.jetbrains.kotlin.jvm") version "2.0.21"
+    id("org.jetbrains.intellij.platform")
 }
 
 group = "com.example"
@@ -18,11 +18,14 @@ repositories {
 }
 
 dependencies {
-    testImplementation("junit:junit:4.13.2")
     intellijPlatform {
-        testFramework(TestFrameworkType.Platform)
-        intellijIdeaUltimate("242.20224.159")
-//        intellijIdeaCommunity("242.20224.159")
+        intellijIdeaCommunity("251.21418.62")
+    }
+}
+
+tasks.named<RunIdeTask>("runIde") {
+    jvmArgumentProviders += CommandLineArgumentProvider {
+        listOf("-Didea.kotlin.plugin.use.k2=false")
     }
 }
 
